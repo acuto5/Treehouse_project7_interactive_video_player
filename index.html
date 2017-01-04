@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title>Interactive Video Player</title>
+		<link rel="stylesheet" href="css/normalize.css">
+		<link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
+		<link rel="stylesheet" href="css/style.css">
+	</head>
+	<body>
+		<div id="video-container">
+			<video id="video">
+				<source src="video/video.mp4" type="video/mp4">
+				<source src="video/video.ogg" type="video/ogg">
+				<track label="English" kind="subtitles" srclang="en" src="video/captions.vtt" default />
+				<p>Your browser doesn't support HTML5 video.</p>
+			</video>
+			<div id="video-controls" class="video-controls">
+				<div class="left">
+					<progress id="progress-bar" value="0" max="100"></progress>
+					<button type="button" id="play-pause"><img id="play-pause-icon" src="icons/play-icon.png" alt="Play button" /></button>
+					<span id="current-time">00:00</span><span id="slash"> / </span><span id="duration">00:59</span>
+					<button type="button" id="rewind"><img id="rewind-icon" src="icons/rewind-icon.png" alt="Rewind button" /></button>
+					<span id="speed" data-speed="1">1x</span>
+				</div>
+				<div class="right">
+					<button type="button" id="cc"><img id="caption-closed" src="icons/cc-on-icon.png" alt="Captions on" /></button>
+					<button type="button" id="volume"><img id="volume-on-icon" src="icons/volume-on-icon.png" alt="Volume on" /></button>
+					<input type="range" id="volume-bar" min="0" max="1" step="0.1" value="1">
+					<progress id="buffered-bar" value="0" max="100"></progress>
+					<button type="button" id="full-screen"><img id="full-screen-icon" src="icons/fullscreen-icon.png" alt="Full screen" /></button>
+				</div>
+			</div>
+		</div>
+		<div id="captions"></div>
+		<script src="js/script.js" type="text/javascript" charset="utf-8"></script>
+	</body>
+</html>

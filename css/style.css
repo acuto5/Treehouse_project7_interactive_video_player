@@ -1,0 +1,247 @@
+/*
+Basic styles
+*/
+body {
+    font-family: 'Lato', sans-serif;
+    font-size: 0.9em;
+}
+
+img{
+	margin:0;
+	padding:0;
+	vertical-align: middle;
+}
+
+button{
+	background: transparent;
+	border: none;
+	outline: none;
+}
+
+#captions p span, #speed, img, input, #progress-bar{
+	cursor: pointer; 
+}
+
+#caption-closed{
+	width: 28px;
+}
+
+#captions{
+	width: 70%;
+	margin: 0 auto;
+}
+
+#play-pause-icon{
+	height: 22px;
+	width: 22px;
+}
+
+#duration, #current-time, #slash, #speed{
+	color: white;
+	font-weight: bold;
+}
+
+/********************
+Video controls styles
+********************/
+.video-controls {
+    position: absolute;
+    left: 0;
+    bottom: -32px;
+	right: 0;
+    padding: 0 10px;
+    background: transparent;
+    opacity: 1;
+    transition: all 0.3s ease-in-out;
+	height: 35px;
+	line-height: 35px;
+	vertical-align: middle;
+	margin:0;
+	padding: 0;
+}
+
+.left{
+	float:left;
+	width: 47%;
+	margin-left: 10px;
+}
+
+.right{
+	float:right;
+	width: 47%;
+	text-align: right;
+	margin-right: 10px;
+}
+
+video {
+    width: 100%;
+}
+
+/**************
+Video container
+**************/
+#video-container {
+	position: relative;
+	margin: 0 auto;
+	overflow: hidden;
+	width: 70%;
+}
+
+#video-container:hover .video-controls { 
+    opacity: 1;
+    -webkit-transform: translate(0,-40px);
+    -o-transform: translate(0,-40px); 
+    -moz-transform: translate(0,-40px);
+    -ms-transform: translate(0,-40px);
+        transform: translate(0,-40px);
+} 
+
+/********************
+Transcript text style
+********************/
+.orange{
+	color: orange;
+	transition: all .3s ease-in-out;
+}
+
+/*********************
+Volume range style
+*********************/
+input[type=range]::-ms-track {
+    width:20%;height:10px;
+    -webkit-appearance:none;margin:0px;padding:0px;border:0 none;
+    background:white;color:red;overflow:visible;border-radius: 5px;
+}
+input[type=range]::-moz-range-track {
+    width:20%;height:10px;
+    -moz-appearance:none;margin:0px;padding:0px;border:0 none;
+    background:white;color:red;overflow:visible;border-radius: 5px;
+}
+input[type=range] {
+    width:20%; height:10px;
+    -webkit-appearance:none;margin:0px;padding:0px;border:0 none;
+    background:white;color:red;overflow:visible;border-radius: 5px;
+}
+
+input[type=range]:focus::-webkit-slider-runnable-track {
+  background: transparent;
+  border: transparent;
+}
+
+input[type=range]:focus {
+  outline: none;
+}
+
+/************
+Progress Bars
+************/
+progress[value] { 
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	height: 3px;
+	border: none;
+	background-color: rgba(231, 230, 230, 0.1);
+}
+
+#progress-bar,
+#buffered-bar {
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	width: 97%;
+	position: absolute;
+	bottom: 20px;
+	left: 0;
+	right: 0;
+	bottom: 40px;
+	margin: 0 auto;
+	transition: all 0.3s ease-in-out;
+}
+
+#progress-bar {
+	z-index: 1;
+}
+
+#video-container:hover #progress-bar, /*Raise bars on hover*/
+#video-container:hover #buffered-bar {
+	-webkit-transform: translateY(-15px);
+	-o-transform: translateY(-15px);
+	-moz-transform: translateY(-15px);
+	-ms-transform: translateY(-15px);
+		transform: translateY(-15px);
+}
+
+#progress-bar::-webkit-progress-bar,
+#buffered-bar::-webkit-progress-bar {
+	background-color: rgba(231, 230, 230, 0.1);
+}
+
+#progress-bar::-webkit-progress-value {
+	background-color: orange;
+}
+
+#buffered-bar::-webkit-progress-value {
+	background-color: rgba(255, 255, 255, .5);
+}
+
+#buffered-bar::-moz-progress-bar {
+	background-color: rgba(255, 255, 255, .5);
+	height: 3px;
+}
+
+#progress-bar::-moz-progress-bar {
+	background-color: orange;
+	height: 3px;
+}
+	
+/************
+Media Queries
+************/
+@media screen and (max-width: 736px){ /*for desktops and small devices*/
+	#video-container, #captions{
+		width: 100%;
+	}
+	#duration, #current-time, #slash, #speed{
+		font-size:70%;
+	}
+	.right, .left{
+		margin:0;
+	}
+}
+
+@media screen and (max-width: 425px){ /*for mobiles phones*/
+	img{
+		width: 15px !important;
+		height: 15px !important;
+	}
+
+	#captions p span{
+		font-size: 0.8em;
+	}
+    #video-container:hover #progress-bar, 
+    #video-container:hover #buffered-bar {
+        -webkit-transform: translateY(10px);
+        -o-transform: translateY(10px);
+        -moz-transform: translateY(10px);
+        -ms-transform: translateY(10px);
+            transform: translateY(10px);
+    }
+	input[type=range]::-ms-track {
+		height:5px;
+	}
+	input[type=range]::-moz-range-track {
+		height:5px;
+	}
+	input[type=range] {
+		height:5px;
+	}
+	button{
+		margin:0;
+		padding:0;
+	}
+	#play-pause{
+		margin-left: 5px;
+	}
+	#full-screen{
+		margin-right: 5px;
+	}
+}
